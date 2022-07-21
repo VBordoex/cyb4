@@ -23,10 +23,12 @@
     }
  // если такого нет, то сохраняем данные
     $result2 = mysqli_query ($conn,"INSERT INTO users (Login,PwdHash,Email) VALUES('$user','$hash','$mail')");
-    // Проверяем, есть ли ошибки
+     
+
     if ($result2=='TRUE')
     {
-    echo "Вы успешно зарегистрированы! Теперь вы можете зайти на сайт. <a href='index1.html'>Главная страница</a>";
+      echo '<meta http-equiv="refresh" content="2; url=login.php" />';
+      die("Вы успешно зарегистрированы! Вы будете перенаправлены на страницу входа.");
     }
  else {
     echo "Ошибка! Вы не зарегистрированы.";
